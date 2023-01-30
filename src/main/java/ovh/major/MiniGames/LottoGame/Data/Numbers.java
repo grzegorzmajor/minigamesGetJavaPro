@@ -42,7 +42,6 @@ public class Numbers {
 
     public Numbers returnContainNumbers(Numbers numbers) {
         Numbers result = new Numbers(MAX_NUMBER_OF_NUMBERS);
-        //TODO for na wykłego bo ten iteruje wstecz.
         for (int number: this.numbers) {
             if (numbers.isContainNumber(number)) result.add(number);
         }
