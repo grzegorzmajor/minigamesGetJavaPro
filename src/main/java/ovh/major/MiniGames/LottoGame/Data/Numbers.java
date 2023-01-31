@@ -52,7 +52,10 @@ public class Numbers {
         StringBuilder result = new StringBuilder();
         for (int i=0;i<size;i++) {
             if (i==0) result.append(numbers[i]);
-            else result.append(", " + numbers[i]);
+            else {
+                result.append(", ");
+                result.append(numbers[i]);
+            }
         }
         return result.toString();
     }

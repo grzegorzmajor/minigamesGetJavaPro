@@ -3,18 +3,19 @@ package ovh.major.MiniGames.LottoGame.Data;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class NumbersTests {
 
     @Test
-    public void printTest__whenNumbersIsEmpty(){
+    public void toStringTest__whenNumbersIsEmpty(){
         Numbers num = new Numbers(3);
         String result = num.toString();
         assertThat(result).isEqualTo("");
     }
 
     @Test
-    public void printTest__whenNumbersIsNotEmpty(){
+    public void toStringTest__whenNumbersIsNotEmpty(){
         Numbers num = new Numbers(3);
         num.add(3);
         num.add(2);
@@ -23,7 +24,7 @@ public class NumbersTests {
     }
 
     @Test
-    public void printTest__whenNumbersIsFull(){
+    public void toStringTest__whenNumbersIsFull(){
         Numbers num = new Numbers(3);
         num.add(3);
         num.add(2);
@@ -121,10 +122,17 @@ public class NumbersTests {
         Numbers result = num.returnContainNumbers(num2);
         String resultString = result.toString();
 
-
         assertThat(resultString).isEqualTo(num2String);
     }
 
-
-
+    @Test
+    public void clearTest(){
+        Numbers num = new Numbers(3);
+        num.add(3);
+        num.add(2);
+        num.add(1);
+        num.clear();
+        String result = num.toString();
+        assertThat(result).isEqualTo("");
+    }
 }
