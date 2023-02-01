@@ -2,21 +2,32 @@ package ovh.major.MiniGames.LottoGame.Data;
 
 public class Numbers {
     private final int MAX_NUMBER_OF_NUMBERS;
+    private final boolean SHOULD_BE_UNIQUE_NUMBERS;
     private int size;
     private int[] numbers;
 
     public Numbers(int maxNumberOfNumbers) {
         size = 0;
         MAX_NUMBER_OF_NUMBERS = maxNumberOfNumbers;
+        SHOULD_BE_UNIQUE_NUMBERS = true;
+        numbers =  new int[maxNumberOfNumbers];
+    }
+    public Numbers(int maxNumberOfNumbers, boolean shouldBeUniqueNumbers) {
+        size = 0;
+        MAX_NUMBER_OF_NUMBERS = maxNumberOfNumbers;
+        SHOULD_BE_UNIQUE_NUMBERS = shouldBeUniqueNumbers;
         numbers =  new int[maxNumberOfNumbers];
     }
 
     public int size(){ return size; }
 
-    public void add(int number) {
+    public boolean add(int number) {
         if (!isFull()) {
-            numbers[size] = number;
-            size++;
+            if (!SHOULD_BE_UNIQUE_NUMBERS || !isContainNumber(number)) {
+                numbers[size] = number;
+                size++;
+                return true;
+            } else return false;
         } else throw new RuntimeException("Add Number Error: Array is full");
     }
 
