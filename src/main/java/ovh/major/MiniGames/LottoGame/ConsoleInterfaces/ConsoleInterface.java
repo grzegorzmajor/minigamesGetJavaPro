@@ -6,10 +6,12 @@ public class ConsoleInterface {
 
     Scanner scanner = new Scanner(System.in);
 
-    public ConsoleInterface() {
+    protected String questionChoice(String question) {
+        writeText(question);
+        return readLine();
     }
 
-    public boolean question(String text) {
+    protected boolean questionYesNo(String text) {
         writeText(text+": ");
         String userChoice = readLine();
         return !userChoice.startsWith("yes");

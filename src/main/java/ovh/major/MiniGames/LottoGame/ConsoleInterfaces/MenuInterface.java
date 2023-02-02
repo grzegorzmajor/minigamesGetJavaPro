@@ -6,11 +6,6 @@ public class MenuInterface extends ConsoleInterface{
         writeTextLine("MENU");
         writeTextLine("----");
         writeTextLine("[lotek] Lotek | [exit] koniec");
-        return questionMenu();
-    }
-
-    private String questionMenu() {
-        writeText("Wpisz słowo z nawiasów: ");
-        return readLine();
+        return questionChoice("Wpisz słowo z nawiasów: ");
     }
 }
