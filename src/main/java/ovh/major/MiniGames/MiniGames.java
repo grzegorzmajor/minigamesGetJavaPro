@@ -1,6 +1,6 @@
 package ovh.major.MiniGames;
 
-import ovh.major.MiniGames.LottoGame.ConsoleInterface;
+import ovh.major.MiniGames.LottoGame.ConsoleInterfaces.ConsoleInterface;
 import ovh.major.MiniGames.LottoGame.LottoGame;
 
 public class MiniGames {

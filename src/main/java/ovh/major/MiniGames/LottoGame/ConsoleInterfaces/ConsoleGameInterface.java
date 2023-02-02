@@ -1,4 +1,4 @@
-package ovh.major.MiniGames.LottoGame;
+package ovh.major.MiniGames.LottoGame.ConsoleInterfaces;
 
 import java.util.InputMismatchException;
 
