@@ -1,18 +1,25 @@
 package ovh.major.MiniGames;
 
-import ovh.major.MiniGames.LottoGame.ConsoleInterfaces.ConsoleInterface;
+import ovh.major.MiniGames.LottoGame.ConsoleInterfaces.MenuInterface;
 import ovh.major.MiniGames.LottoGame.LottoGame;
 
 public class MiniGames {
     public static void main(String[] args) {
 
-        ConsoleInterface console = new ConsoleInterface();
+        MenuInterface menu = new MenuInterface();
+        boolean continueGames = false;
 
         do {
-            LottoGame lotto = new LottoGame(6, 99, 6);
-            lotto.startGame();
-
-        } while (!console.question("Czy chcesz zagrać jeszcze raz? Wpisz yes lub no"));
+            String choice = menu.startMenu();
+            switch (choice) {
+                case "lotek" -> {
+                    LottoGame lotto = new LottoGame(6, 99, 6);
+                    lotto.startGame();
+                }
+                case "exit" -> continueGames = true;
+                default -> menu.writeTextLine("Wybierz poprawną opcję! ");
+            }
+        } while (!continueGames);
 
     }
 }
