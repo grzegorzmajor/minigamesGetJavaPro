@@ -30,7 +30,7 @@ public class ConsoleGameInterface extends ConsoleInterface {
         int number;
         do {
              number = readNumber();
-             if (number> MAX_VALUE) writeText("Podana liczba jest poza zakresem! Podaj poprawną: ");
+             if (number <= 0 || number> MAX_VALUE) writeText("Podana liczba jest poza zakresem! Podaj poprawną: ");
         } while (number <= 0 || number > MAX_VALUE);
         return number;
     }
