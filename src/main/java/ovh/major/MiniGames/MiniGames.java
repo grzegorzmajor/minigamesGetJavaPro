@@ -9,7 +9,7 @@ public class MiniGames {
         ConsoleInterface console = new ConsoleInterface();
 
         do {
-            LottoGame lotto = new LottoGame(6, 100, 6);
+            LottoGame lotto = new LottoGame(6, 99, 6);
             lotto.startGame();
 
         } while (!console.question("Czy chcesz zagrać jeszcze raz? Wpisz yes lub no"));

@@ -31,7 +31,7 @@ public class ConsoleGameInterface extends ConsoleInterface {
         do {
              number = readNumber();
              if (number> MAX_VALUE) writeText("Podana liczba jest poza zakresem! Podaj poprawną: ");
-        } while (number > MAX_VALUE);
+        } while (number <= 0 || number > MAX_VALUE);
         return number;
     }
 }
