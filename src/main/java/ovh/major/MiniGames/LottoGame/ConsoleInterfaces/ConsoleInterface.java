@@ -14,7 +14,7 @@ public class ConsoleInterface {
     protected boolean questionYesNo(String question) {
         writeText(question);
         String userChoice = readLine();
-        return !userChoice.startsWith("yes");
+        return userChoice.startsWith("yes");
     }
 
     protected int readNumber() {
