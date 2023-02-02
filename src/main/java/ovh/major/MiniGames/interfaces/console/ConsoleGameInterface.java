@@ -1,8 +1,8 @@
-package ovh.major.MiniGames.LottoGame.ConsoleInterfaces;
+package ovh.major.MiniGames.interfaces.console;
 
 import java.util.InputMismatchException;
 
-public class ConsoleGameInterface extends ConsoleInterface {
+class ConsoleGameInterface extends ConsoleInterface {
 
     private final int MAX_VALUE;
 

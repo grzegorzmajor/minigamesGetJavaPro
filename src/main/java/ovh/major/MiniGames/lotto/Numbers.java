@@ -1,6 +1,6 @@
-package ovh.major.MiniGames.LottoGame.Data;
+package ovh.major.MiniGames.lotto;
 
-public class Numbers {
+ class Numbers {
     private final int MAX_NUMBER_OF_NUMBERS;
     private final boolean SHOULD_BE_UNIQUE_NUMBERS;
     private int size;
@@ -71,8 +71,8 @@ public class Numbers {
 
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (int i=0;i<size;i++) {
-            if (i==0) result.append(numbers[i]);
+        for (int i = 0; i < size; i++) {
+            if (i == 0) result.append(numbers[i]);
             else {
                 result.append(", ");
                 result.append(numbers[i]);
