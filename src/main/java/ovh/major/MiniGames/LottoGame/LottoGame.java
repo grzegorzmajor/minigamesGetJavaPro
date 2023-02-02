@@ -10,7 +10,7 @@ public class LottoGame {
 
     private final boolean SHOULD_BE_UNIQUE_NUMBERS = true;
     private final Numbers playerNumbers;
-    private Numbers aiNumbers;
+    private final Numbers aiNumbers;
     private final NumberGenerator generator;
 
     private final ConsoleGameInterface gameInterface;

@@ -37,6 +37,7 @@ public class Numbers {
     }
 
     public boolean isContainNumber(int comparedNumber) {
+        if (this.isEmpty()) return false;
         for(int number:numbers) {
             if (number==comparedNumber) return true;
         }
@@ -44,6 +45,7 @@ public class Numbers {
     }
 
     public boolean isContainAllNumbers(Numbers numbers) {
+        if (this.isEmpty() || numbers.isEmpty()) return false;
         boolean result = true;
         for (int number: this.numbers) {
             result = numbers.isContainNumber(number);
@@ -55,6 +57,14 @@ public class Numbers {
         Numbers result = new Numbers(MAX_NUMBER_OF_NUMBERS);
         for (int number: this.numbers) {
             if (numbers.isContainNumber(number)) result.add(number);
+        }
+        return result;
+    }
+
+    public Numbers returnNotContainNumbers(Numbers numbers) {
+        Numbers result = new Numbers(MAX_NUMBER_OF_NUMBERS);
+        for (int number: this.numbers) {
+            if (!numbers.isContainNumber(number)) result.add(number);
         }
         return result;
     }

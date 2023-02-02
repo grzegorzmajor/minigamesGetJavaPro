@@ -1,7 +1,5 @@
 package ovh.major.MiniGames.LottoGame;
 
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ConsoleInterface {
@@ -13,8 +11,16 @@ public class ConsoleInterface {
 
     public boolean question(String text) {
         writeText(text+": ");
-        String userChoice = scanner.nextLine();
+        String userChoice = readLine();
         return !userChoice.startsWith("yes");
+    }
+
+    protected int readNumber() {
+        return scanner.nextInt();
+    }
+
+    protected String readLine() {
+        return scanner.nextLine();
     }
 
     public void writeText(String text) {
@@ -24,7 +30,7 @@ public class ConsoleInterface {
         System.out.println(text);
     }
     protected void scannerClear(){
-        if (scanner.hasNext()) scanner.nextLine();
+        if (scanner.hasNextLine()) readLine();
     }
 
 }

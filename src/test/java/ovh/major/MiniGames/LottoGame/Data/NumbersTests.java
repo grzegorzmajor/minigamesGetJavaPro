@@ -3,7 +3,6 @@ package ovh.major.MiniGames.LottoGame.Data;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
 
 public class NumbersTests {
 
@@ -123,6 +122,24 @@ public class NumbersTests {
         String resultString = result.toString();
 
         assertThat(resultString).isEqualTo(num2String);
+    }
+
+    @Test
+    public void returnNotContainNumbersTest__WhenResultIsTrueAndTheyAreNotTeSame() {
+        Numbers num = new Numbers(3);
+        Numbers num2= new Numbers(3);
+
+        num.add(3);
+        num.add(2);
+        num.add(1);
+        num2.add(2);
+        num2.add(1);
+        String resultShouldBe = "3";
+
+        Numbers result = num.returnNotContainNumbers(num2);
+        String resultString = result.toString();
+
+        assertThat(resultString).isEqualTo(resultShouldBe);
     }
 
     @Test

@@ -1,6 +1,5 @@
 package ovh.major.MiniGames;
 
-import ovh.major.MiniGames.LottoGame.ConsoleGameInterface;
 import ovh.major.MiniGames.LottoGame.ConsoleInterface;
 import ovh.major.MiniGames.LottoGame.LottoGame;
 
