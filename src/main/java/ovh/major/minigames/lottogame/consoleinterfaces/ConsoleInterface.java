@@ -1,4 +1,4 @@
-package ovh.major.MiniGames.LottoGame.ConsoleInterfaces;
+package ovh.major.minigames.lottogame.consoleinterfaces;
 
 import java.util.Scanner;
 

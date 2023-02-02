@@ -1,6 +1,6 @@
-package ovh.major.MiniGames.LottoGame.ConsoleInterfaces;
+package ovh.major.minigames.lottogame.consoleinterfaces;
 
-import ovh.major.MiniGames.LottoGame.LottoGame;
+import ovh.major.minigames.lottogame.LottoGame;
 
 public class MenuInterface extends ConsoleInterface{
 

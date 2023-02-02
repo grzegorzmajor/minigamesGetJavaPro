@@ -1,11 +1,10 @@
-package ovh.major.MiniGames.LottoGame.NumberGenerator;
+package ovh.major.minigames.lottogame.numbergenerator;
 
 import java.security.SecureRandom;
 
 public class NumberGenerator {
 
     public int getRandomNumber(int maxValue) {
-        SecureRandom sRandom = new SecureRandom();
         return getRandomNumber(1,maxValue);
     }
 

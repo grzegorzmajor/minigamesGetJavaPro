@@ -1,10 +1,8 @@
-package ovh.major.MiniGames.LottoGame.NumberGenerator;
+package ovh.major.minigames.lottogame.numbergenerator;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 

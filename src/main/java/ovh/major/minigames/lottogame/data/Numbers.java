@@ -1,4 +1,4 @@
-package ovh.major.MiniGames.LottoGame.Data;
+package ovh.major.minigames.lottogame.data;
 
 public class Numbers {
     private final int MAX_NUMBER_OF_NUMBERS;

@@ -1,9 +1,9 @@
-package ovh.major.MiniGames.LottoGame;
+package ovh.major.minigames.lottogame;
 
-import ovh.major.MiniGames.LottoGame.ConsoleInterfaces.ConsoleGameInterface;
-import ovh.major.MiniGames.LottoGame.Data.Numbers;
-import ovh.major.MiniGames.LottoGame.Data.Results;
-import ovh.major.MiniGames.LottoGame.NumberGenerator.NumberGenerator;
+import ovh.major.minigames.lottogame.consoleinterfaces.ConsoleGameInterface;
+import ovh.major.minigames.lottogame.data.Numbers;
+import ovh.major.minigames.lottogame.data.Results;
+import ovh.major.minigames.lottogame.numbergenerator.NumberGenerator;
 
 public class LottoGame {
     private final int NUMBER_OF_DRAWN_NUMBERS;
