@@ -1,6 +1,6 @@
-package ovh.major.MiniGames.LottoGame.Data;
+package ovh.major.MiniGames.lotto;
 
-public class Results {
+ class Results {
     private final Numbers winingUserNumbers;
     private final Numbers missedUserNumbers;
 

@@ -1,8 +1,8 @@
-package ovh.major.MiniGames.LottoGame.ConsoleInterfaces;
+package ovh.major.MiniGames.interfaces.console;
 
 import java.util.Scanner;
 
-public class ConsoleInterface {
+class ConsoleInterface {
 
     Scanner scanner = new Scanner(System.in);
 
