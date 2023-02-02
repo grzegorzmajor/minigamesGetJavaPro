@@ -1,6 +1,7 @@
 package ovh.major.MiniGames.LottoGame;
 
 import ovh.major.MiniGames.LottoGame.Data.Numbers;
+import ovh.major.MiniGames.LottoGame.Data.Results;
 import ovh.major.MiniGames.LottoGame.NumberGenerator.NumberGenerator;
 
 public class LottoGame {
@@ -45,7 +46,16 @@ public class LottoGame {
     public void startGame() {
         drawn();
         readFromUser();
-        gameInterface.writeTextLine("reszta gry będzie później!");
+        Results results = new Results(aiNumbers.returnContainNumbers(playerNumbers),aiNumbers.returnNotContainNumbers(playerNumbers));
+        gameInterface.writeText("Numery wybrane przez gracza: ");
+        gameInterface.writeTextLine(playerNumbers.toString());
+        gameInterface.writeText("Numery losowania: ");
+        gameInterface.writeTextLine(aiNumbers.toString());
+
+        gameInterface.writeText("Graczu! Trafiłeś " + results.numberOfHits() + ": ");
+        gameInterface.writeTextLine(results.winingNumbers());
+        gameInterface.writeText("Nie trafiłeś " + results.numberOfFailures() + ": ");
+        gameInterface.writeTextLine(results.missedNumbers());
     }
 
 }
