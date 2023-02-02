@@ -4,7 +4,7 @@ package ovh.major.MiniGames.LottoGame;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConsoleGameInterface {
+public class ConsoleGameInterface extends ConsoleInterface {
 
     private final int MAX_VALUE;
     Scanner scanner = new Scanner(System.in);
@@ -29,10 +29,6 @@ public class ConsoleGameInterface {
         return number;
     }
 
-    private void scannerClear(){
-        if (scanner.hasNext()) scanner.nextLine();
-    }
-
     private int readNumberWithMaxValue() {
         int number;
         do {
@@ -41,12 +37,7 @@ public class ConsoleGameInterface {
         } while (number > MAX_VALUE);
         return number;
     }
-    public void writeText(String text) {
-        System.out.print(text);
-    }
-    public void writeTextLine(String text) {
-        System.out.println(text);
-    }
+
     private int readNumber() {
         return scanner.nextInt();
     }
