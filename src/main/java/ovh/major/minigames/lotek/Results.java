@@ -1,6 +1,8 @@
-package ovh.major.minigames.lottogame.data;
+package ovh.major.minigames.lotek;
 
-public class Results {
+import ovh.major.minigames.data.Numbers;
+
+class Results {
     private final Numbers winingUserNumbers;
     private final Numbers missedUserNumbers;
 
@@ -12,7 +14,8 @@ public class Results {
     public int numberOfHits() {
         return winingUserNumbers.size();
     }
-    public int numberOfFailures() {
+
+    public int numberOfMissed() {
         return missedUserNumbers.size();
     }
 

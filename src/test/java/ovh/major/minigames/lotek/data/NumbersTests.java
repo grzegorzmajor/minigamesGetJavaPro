@@ -1,6 +1,7 @@
-package ovh.major.minigames.lottogame.data;
+package ovh.major.minigames.lotek.data;
 
 import org.junit.Test;
+import ovh.major.minigames.data.Numbers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

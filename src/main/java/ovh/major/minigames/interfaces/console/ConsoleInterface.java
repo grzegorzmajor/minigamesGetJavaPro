@@ -1,18 +1,26 @@
-package ovh.major.minigames.lottogame.consoleinterfaces;
+package ovh.major.minigames.interfaces.console;
 
 import java.util.Scanner;
 
-public class ConsoleInterface {
+class ConsoleInterface {
 
     Scanner scanner = new Scanner(System.in);
 
+    protected void printText(String text) {
+        System.out.print(text);
+    }
+
+    protected void printTextLine(String text) {
+        System.out.println(text);
+    }
+
     protected String questionChoice(String question) {
-        writeText(question);
+        printText(question);
         return readLine();
     }
 
     protected boolean questionYesNo(String question) {
-        writeText(question);
+        printText(question);
         String userChoice = readLine();
         return userChoice.startsWith("yes");
     }
@@ -25,13 +33,7 @@ public class ConsoleInterface {
         return scanner.nextLine();
     }
 
-    public void writeText(String text) {
-        System.out.print(text);
-    }
-    public void writeTextLine(String text) {
-        System.out.println(text);
-    }
-    protected void scannerClear(){
+    protected void scannerClear() {
         if (scanner.hasNextLine()) readLine();
     }
 

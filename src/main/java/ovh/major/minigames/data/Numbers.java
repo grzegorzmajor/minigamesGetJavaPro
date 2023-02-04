@@ -1,4 +1,4 @@
-package ovh.major.minigames.lottogame.data;
+package ovh.major.minigames.data;
 
 public class Numbers {
     private final int MAX_NUMBER_OF_NUMBERS;
@@ -10,16 +10,19 @@ public class Numbers {
         size = 0;
         MAX_NUMBER_OF_NUMBERS = maxNumberOfNumbers;
         SHOULD_BE_UNIQUE_NUMBERS = true;
-        numbers =  new int[maxNumberOfNumbers];
+        numbers = new int[maxNumberOfNumbers];
     }
+
     public Numbers(int maxNumberOfNumbers, boolean shouldBeUniqueNumbers) {
         size = 0;
         MAX_NUMBER_OF_NUMBERS = maxNumberOfNumbers;
         SHOULD_BE_UNIQUE_NUMBERS = shouldBeUniqueNumbers;
-        numbers =  new int[maxNumberOfNumbers];
+        numbers = new int[maxNumberOfNumbers];
     }
 
-    public int size(){ return size; }
+    public int size() {
+        return size;
+    }
 
     public boolean add(int number) {
         if (!isFull()) {
@@ -31,15 +34,15 @@ public class Numbers {
         } else throw new RuntimeException("Add Number Error: Array is full");
     }
 
-    public void clear(){
+    public void clear() {
         size = 0;
-        numbers =  new int[MAX_NUMBER_OF_NUMBERS];
+        numbers = new int[MAX_NUMBER_OF_NUMBERS];
     }
 
     public boolean isContainNumber(int comparedNumber) {
         if (this.isEmpty()) return false;
-        for(int number:numbers) {
-            if (number==comparedNumber) return true;
+        for (int number : numbers) {
+            if (number == comparedNumber) return true;
         }
         return false;
     }
@@ -47,7 +50,7 @@ public class Numbers {
     public boolean isContainAllNumbers(Numbers numbers) {
         if (this.isEmpty() || numbers.isEmpty()) return false;
         boolean result = true;
-        for (int number: this.numbers) {
+        for (int number : this.numbers) {
             result = numbers.isContainNumber(number);
         }
         return result;
@@ -55,7 +58,7 @@ public class Numbers {
 
     public Numbers returnContainNumbers(Numbers numbers) {
         Numbers result = new Numbers(MAX_NUMBER_OF_NUMBERS);
-        for (int number: this.numbers) {
+        for (int number : this.numbers) {
             if (numbers.isContainNumber(number)) result.add(number);
         }
         return result;
@@ -63,7 +66,7 @@ public class Numbers {
 
     public Numbers returnNotContainNumbers(Numbers numbers) {
         Numbers result = new Numbers(MAX_NUMBER_OF_NUMBERS);
-        for (int number: this.numbers) {
+        for (int number : this.numbers) {
             if (!numbers.isContainNumber(number)) result.add(number);
         }
         return result;
@@ -71,8 +74,8 @@ public class Numbers {
 
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (int i=0;i<size;i++) {
-            if (i==0) result.append(numbers[i]);
+        for (int i = 0; i < size; i++) {
+            if (i == 0) result.append(numbers[i]);
             else {
                 result.append(", ");
                 result.append(numbers[i]);

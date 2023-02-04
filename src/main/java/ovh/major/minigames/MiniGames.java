@@ -1,6 +1,6 @@
 package ovh.major.minigames;
 
-import ovh.major.minigames.lottogame.consoleinterfaces.MenuInterface;
+import ovh.major.minigames.interfaces.console.MenuInterface;
 
 public class MiniGames {
     public static void main(String[] args) {
