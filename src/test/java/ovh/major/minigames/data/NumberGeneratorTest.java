@@ -1,7 +1,6 @@
-package ovh.major.minigames.lotek.numbergenerator;
+package ovh.major.minigames.data;
 
 import org.junit.Test;
-import ovh.major.minigames.data.NumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
@@ -32,4 +31,6 @@ public class NumberGeneratorTest {
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
+
+
 }

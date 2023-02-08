@@ -1,6 +1,6 @@
 package ovh.major.minigames.interfaces.console;
 
-public class ConsolePrinter {
+class ConsolePrinter {
 
     public void print(String printedText) {
         System.out.print(printedText);

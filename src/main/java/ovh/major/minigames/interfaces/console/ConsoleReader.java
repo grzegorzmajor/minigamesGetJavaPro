@@ -1,11 +1,14 @@
 package ovh.major.minigames.interfaces.console;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
-public class ConsoleReader extends ConsoleInterface {
+class ConsoleReader {
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
+    private final Scanner scanner = new Scanner(System.in);
+    private final ConsolePrinter consolePrinter = new ConsolePrinter();
 
     public ConsoleReader(int minNumberValue, int maxNumberValue) {
         this.MIN_VALUE = minNumberValue;
@@ -18,10 +21,10 @@ public class ConsoleReader extends ConsoleInterface {
         do {
             try {
                 userCantReadWithComprehensionOrIsMalicious = false;
-                printText("Podaj liczbę od " + MIN_VALUE + " do " + MAX_VALUE + ": ");
-                number = readNumberWithMaxValue();
+                consolePrinter.print("Podaj liczbę od " + MIN_VALUE + " do " + MAX_VALUE + ": ");
+                number = readNumberWithRangeOfValue();
             } catch (InputMismatchException e) {
-                printTextLine("To nie jest liczba!");
+                consolePrinter.printLn("To nie jest liczba!");
                 scannerClear();
                 userCantReadWithComprehensionOrIsMalicious = true;
             }
@@ -29,14 +32,19 @@ public class ConsoleReader extends ConsoleInterface {
         return number;
     }
 
-    private int readNumberWithMaxValue() {
+    private int readNumberWithRangeOfValue() {
         int number;
         boolean isNumberInRange;
         do {
-            number = readNumber();
+            number = scanner.nextInt();
             isNumberInRange = number < MIN_VALUE || number > MAX_VALUE;
-            if (isNumberInRange) printText("Podana liczba jest poza zakresem! Podaj poprawną: ");
+            if (isNumberInRange) consolePrinter.print("Podana liczba jest poza zakresem! Podaj poprawną: ");
         } while (isNumberInRange);
         return number;
     }
+
+    private void scannerClear() {
+        if (scanner.hasNextLine()) scanner.nextLine();
+    }
+
 }

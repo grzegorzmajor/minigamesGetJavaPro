@@ -1,12 +1,12 @@
 package ovh.major.minigames;
 
-import ovh.major.minigames.interfaces.console.MenuInterface;
+import ovh.major.minigames.interfaces.console.ConsoleMenu;
 
 public class MiniGames {
     public static void main(String[] args) {
-
-        MenuInterface menu = new MenuInterface();
-        menu.start();
-
+        if (args.length == 0) {
+            ConsoleMenu consoleMenu = new ConsoleMenu();
+            consoleMenu.start();
+        }
     }
 }
