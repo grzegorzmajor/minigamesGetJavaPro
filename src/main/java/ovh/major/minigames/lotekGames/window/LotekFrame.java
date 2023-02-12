@@ -2,8 +2,9 @@ package ovh.major.minigames.lotekGames.window;
 
 import ovh.major.minigames.lotekGames.GameConfigurator;
 import ovh.major.minigames.lotekGames.LotekGames;
-import ovh.major.minigames.modules.NumberGenerator;
 import ovh.major.minigames.lotekGames.NumbersSet;
+import ovh.major.minigames.modules.NumberGenerator;
+import ovh.major.minigames.modules.WordChanger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +15,9 @@ public class LotekFrame extends JFrame implements ActionListener {
 
     private final GameConfigurator gameConfigurator;
     private final NumbersSet userNumbers;
-    private NumbersSet aiNumbers;
     private final JLabel label = new JLabel(" Grasz?", SwingConstants.CENTER);
     private final JButton button = new JButton("Gram!");
+    private NumbersSet aiNumbers;
 
 
     public LotekFrame(GameConfigurator gameConfigurator) {
@@ -75,29 +76,15 @@ public class LotekFrame extends JFrame implements ActionListener {
             label.setText("Dodaj najpierw chciaż jedną liczbę!");
         }
     }
+
     private void startGame() {
         this.aiNumbers = drawn(gameConfigurator.getNumberOfDrawNumbers(), gameConfigurator.getDrawnRangeMax());
         LotekGames lotek = new LotekGames(this.gameConfigurator, this.userNumbers, this.aiNumbers);
         resultPrint(lotek.start());
-
     }
 
-    private void resultPrint(NumbersSet result){
+    private void resultPrint(NumbersSet result) {
         label.setText("<html>Numery losowania: " + aiNumbers + "<br>Trafiłeś "
-                + result.size() + " " + numberWordChanger(result.size()) + ": " + result);
-    }
-
-    private String numberWordChanger(int liczba) {
-        switch (liczba) {
-            case 1 -> {
-                return "liczbę";
-            }
-            case 2, 3, 4 -> {
-                return "liczby";
-            }
-            default -> {
-                return "liczb";
-            }
-        }
+                + result.size() + " " + WordChanger.number(result.size()) + ": " + result);
     }
 }
