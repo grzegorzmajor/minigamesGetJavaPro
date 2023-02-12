@@ -12,8 +12,7 @@ class UserNumbersPanel extends JPanel implements ActionListener {
 
     private final JLabel label;
     private final GameConfigurator gameConfigurator;
-    private final SpinnerModel model = new SpinnerNumberModel(1, 1, 99, 1);
-    private final JSpinner spinner = new JSpinner(model);
+    private final JSpinner spinner;
     private final JButton addButton = new JButton("Dodaj");
     private final JButton clearButton = new JButton("Czyść");
     NumbersSet userNumbers;
@@ -22,6 +21,9 @@ class UserNumbersPanel extends JPanel implements ActionListener {
     public UserNumbersPanel(NumbersSet userNumbers, GameConfigurator gameConfigurator) {
         this.gameConfigurator = gameConfigurator;
         this.userNumbers = userNumbers;
+        SpinnerModel model = new SpinnerNumberModel(1, gameConfigurator.getDrawnRangeMin(),
+                gameConfigurator.getDrawnRangeMax(), 1);
+        spinner = new JSpinner(model);
         setUserNumberText();
         this.label = new JLabel(USER_NUMBERS_TEXT, SwingConstants.CENTER);
         label.setPreferredSize(new Dimension(280, 70));
@@ -43,7 +45,7 @@ class UserNumbersPanel extends JPanel implements ActionListener {
             if (!userNumbers.isFull()) {
                 int value = (int) spinner.getValue();
                 userNumbers.add(value);
-                label.setText("Twoje liczby: " + userNumbers.toString());
+                label.setText("<html>Twoje liczby: " + userNumbers.toString());
             } else {
                 label.setText("<html>Twoje liczby: " + userNumbers.toString() + "<br>Nie możesz dodać więcej!");
             }
