@@ -12,6 +12,7 @@ public class Lotek {
         final LotekConsoleBuilder lotek = new LotekConsoleBuilder(gameConfig);
         lotek.start();
     }
+
     public void startGame69() {
         ConsolePrinter.printLn("Ile liczb chcesz wybrać? ");
         ConsoleNumberReader consoleNumberReader = new ConsoleNumberReader(1, 12);

@@ -5,7 +5,7 @@ import ovh.major.minigames.menu.window.WindowsStart;
 
 public class MiniGames {
     public static void main(String[] args) {
-        System.out.println("args:"+args.length);
+        System.out.println("args:" + args.length);
         if (args.length == 0) {
             ConsoleStart consoleMenu = new ConsoleStart();
             consoleMenu.start();

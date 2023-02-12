@@ -1,9 +1,9 @@
 package ovh.major.minigames.menu.console;
 
 
+import ovh.major.minigames.lotekGames.console.Lotek;
 import ovh.major.minigames.modules.console.ConsolePrinter;
 import ovh.major.minigames.modules.console.Questions;
-import ovh.major.minigames.lotekGames.console.Lotek;
 
 public class ConsoleStart {
     private final Questions question = new Questions();

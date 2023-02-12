@@ -2,10 +2,10 @@ package ovh.major.minigames.lotekGames.console;
 
 import ovh.major.minigames.lotekGames.GameConfigurator;
 import ovh.major.minigames.lotekGames.LotekGames;
+import ovh.major.minigames.lotekGames.NumbersSet;
+import ovh.major.minigames.modules.NumberGenerator;
 import ovh.major.minigames.modules.console.ConsoleNumberReader;
 import ovh.major.minigames.modules.console.ConsolePrinter;
-import ovh.major.minigames.modules.NumberGenerator;
-import ovh.major.minigames.lotekGames.NumbersSet;
 
 class LotekConsoleBuilder {
 
