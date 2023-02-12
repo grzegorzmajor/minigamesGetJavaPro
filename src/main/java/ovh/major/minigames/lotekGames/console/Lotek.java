@@ -5,7 +5,6 @@ import ovh.major.minigames.modules.console.ConsoleNumberReader;
 import ovh.major.minigames.modules.console.ConsolePrinter;
 
 public class Lotek {
-    private final ConsolePrinter consolePrinter = new ConsolePrinter();
     public void startGame() {
         final GameConfigurator gameConfig =
                 new GameConfigurator(6, 1, 99,
@@ -14,7 +13,7 @@ public class Lotek {
         lotek.start();
     }
     public void startGame69() {
-        consolePrinter.printLn("Ile liczb chcesz wybrać? ");
+        ConsolePrinter.printLn("Ile liczb chcesz wybrać? ");
         ConsoleNumberReader consoleNumberReader = new ConsoleNumberReader(1, 12);
         int numberOfPlayerNumbers = consoleNumberReader.readNumberFromUser();
         final GameConfigurator gameConfig =

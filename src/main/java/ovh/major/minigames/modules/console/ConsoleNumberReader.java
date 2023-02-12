@@ -8,7 +8,6 @@ public class ConsoleNumberReader {
     private final int MIN_VALUE;
     private final int MAX_VALUE;
     private final Scanner scanner = new Scanner(System.in);
-    private final ConsolePrinter consolePrinter = new ConsolePrinter();
 
     public ConsoleNumberReader(int minNumberValue, int maxNumberValue) {
         this.MIN_VALUE = minNumberValue;
@@ -21,10 +20,10 @@ public class ConsoleNumberReader {
         do {
             try {
                 userCantReadWithComprehensionOrIsMalicious = false;
-                consolePrinter.print("Podaj liczbę od " + MIN_VALUE + " do " + MAX_VALUE + ": ");
+                ConsolePrinter.print("Podaj liczbę od " + MIN_VALUE + " do " + MAX_VALUE + ": ");
                 number = readNumberWithRangeOfValue();
             } catch (InputMismatchException e) {
-                consolePrinter.printLn("To nie jest liczba!");
+                ConsolePrinter.printLn("To nie jest liczba!");
                 scannerClear();
                 userCantReadWithComprehensionOrIsMalicious = true;
             }
@@ -38,7 +37,7 @@ public class ConsoleNumberReader {
         do {
             number = scanner.nextInt();
             isNumberInRange = number < MIN_VALUE || number > MAX_VALUE;
-            if (isNumberInRange) consolePrinter.print("Podana liczba jest poza zakresem! Podaj poprawną: ");
+            if (isNumberInRange) ConsolePrinter.print("Podana liczba jest poza zakresem! Podaj poprawną: ");
         } while (isNumberInRange);
         return number;
     }

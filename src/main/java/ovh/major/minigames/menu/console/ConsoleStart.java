@@ -6,7 +6,6 @@ import ovh.major.minigames.modules.console.Questions;
 import ovh.major.minigames.lotekGames.console.Lotek;
 
 public class ConsoleStart {
-    private final ConsolePrinter consolePrinter = new ConsolePrinter();
     private final Questions question = new Questions();
     Lotek lotek = new Lotek();
 
@@ -26,7 +25,7 @@ public class ConsoleStart {
             case "EXIT" -> {
                 return !question.yesNo("Czy na pewno chcesz wyjść? [yes]|[no]: ");
             }
-            default -> consolePrinter.printLn("Wybierz poprawną opcję! ");
+            default -> ConsolePrinter.printLn("Wybierz poprawną opcję! ");
         }
         return true;
     }
@@ -36,8 +35,8 @@ public class ConsoleStart {
     }
 
     private void printMenu() {
-        consolePrinter.printLn(MenuItems.MENU_TITLE.toString());
-        consolePrinter.printLn(
+        ConsolePrinter.printLn(MenuItems.MENU_TITLE.toString());
+        ConsolePrinter.printLn(
                 "[" + MenuItems.LOTEK.name() + "] " + MenuItems.LOTEK + " | " +
                         "[" + MenuItems.LOTEK69.name() + "] " + MenuItems.LOTEK69 + " | " +
                         "[" + MenuItems.EXIT.name() + "] " + MenuItems.EXIT

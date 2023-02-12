@@ -14,7 +14,7 @@ class LotekConsoleBuilder {
 
     private final GameConfigurator gameConfig;
     private final ConsoleNumberReader consoleNumberReader;
-    private final ConsolePrinter consolePrinter = new ConsolePrinter();
+
 
     public LotekConsoleBuilder(GameConfigurator gameConfig) {
         this.gameConfig = gameConfig;
@@ -25,14 +25,13 @@ class LotekConsoleBuilder {
         LotekGames lotto = new LotekGames(gameConfig, readFromPlayer(), drawnNumbers());
         NumbersSet winingNumbers = lotto.start();
         LotekResults lotekResults = new LotekResults(winingNumbers);
-        consolePrinter.printLn(lotekResults.toString());
+        ConsolePrinter.printLn(lotekResults.toString());
     }
 
     private NumbersSet drawnNumbers() {
         NumbersSet aiNumbers = new NumbersSet(gameConfig.getNumberOfDrawNumbers());
-        NumberGenerator generator = new NumberGenerator();
         for (int i = 0; i < gameConfig.getNumberOfDrawNumbers(); i++) {
-            boolean isAdded = aiNumbers.add(generator.getRandomNumber(gameConfig.getDrawnRangeMax()));
+            boolean isAdded = aiNumbers.add(NumberGenerator.getRandomNumber(gameConfig.getDrawnRangeMax()));
             if (!isAdded) i--;
         }
         numbersPrinter(AI_NUMBER_TEXT, aiNumbers);
@@ -41,13 +40,12 @@ class LotekConsoleBuilder {
 
     private NumbersSet readFromPlayer() {
         final String NUMBER_IS_EXIST_TEXT = "Ta liczba już została wybrana!";
-        ConsolePrinter consolePrinter = new ConsolePrinter();
         NumbersSet playerNumbers = new NumbersSet(gameConfig.getNumberOfPlayerNumbers());
         for (int i = 0; i < gameConfig.getNumberOfPlayerNumbers(); i++) {
             int number = consoleNumberReader.readNumberFromUser();
             boolean isAdded = playerNumbers.add(number);
             if (!isAdded) {
-                consolePrinter.printLn(NUMBER_IS_EXIST_TEXT);
+                ConsolePrinter.printLn(NUMBER_IS_EXIST_TEXT);
                 i--;
             }
         }
@@ -56,9 +54,8 @@ class LotekConsoleBuilder {
     }
 
     private void numbersPrinter(String description, NumbersSet playerNumbers) {
-        ConsolePrinter consolePrinter = new ConsolePrinter();
-        consolePrinter.print(description);
-        consolePrinter.printLn(playerNumbers.toString());
+        ConsolePrinter.print(description);
+        ConsolePrinter.printLn(playerNumbers.toString());
     }
 }
 
