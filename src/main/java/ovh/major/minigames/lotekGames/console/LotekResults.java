@@ -1,15 +1,15 @@
-package ovh.major.minigames.interfaces.console;
+package ovh.major.minigames.lotekGames.console;
 
-import ovh.major.minigames.data.Numbers;
+import ovh.major.minigames.lotekGames.NumbersSet;
 
 class LotekResults {
-    private final Numbers winingUserNumbers;
+    private final NumbersSet winingUserNumbers;
 
-    public LotekResults(Numbers winingUserNumbers) {
+    public LotekResults(NumbersSet winingUserNumbers) {
         this.winingUserNumbers = winingUserNumbers;
     }
 
-    public String toString(){
+    public String toString() {
         String result;
         if (numberOfHits() > 0) {
             result = "\nGraczu! Trafiłeś " + numberOfHits() + " " + numberWordChanger(numberOfHits()) + ". Trafione liczby: ";

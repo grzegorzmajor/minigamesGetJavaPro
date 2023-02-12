@@ -1,16 +1,16 @@
-package ovh.major.minigames.interfaces.console;
+package ovh.major.minigames.modules.console;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class ConsoleReader {
+public class ConsoleNumberReader {
 
     private final int MIN_VALUE;
     private final int MAX_VALUE;
     private final Scanner scanner = new Scanner(System.in);
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
 
-    public ConsoleReader(int minNumberValue, int maxNumberValue) {
+    public ConsoleNumberReader(int minNumberValue, int maxNumberValue) {
         this.MIN_VALUE = minNumberValue;
         this.MAX_VALUE = maxNumberValue;
     }

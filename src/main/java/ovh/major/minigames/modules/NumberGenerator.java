@@ -1,4 +1,4 @@
-package ovh.major.minigames.data;
+package ovh.major.minigames.modules;
 
 import java.security.SecureRandom;
 

@@ -1,9 +1,11 @@
-package ovh.major.minigames.interfaces.console;
+package ovh.major.minigames.lotekGames.console;
 
-import ovh.major.minigames.data.GameConfigurator;
-import ovh.major.minigames.data.NumberGenerator;
-import ovh.major.minigames.data.Numbers;
-import ovh.major.minigames.lotek.LottoGame;
+import ovh.major.minigames.lotekGames.GameConfigurator;
+import ovh.major.minigames.lotekGames.LotekGames;
+import ovh.major.minigames.modules.console.ConsoleNumberReader;
+import ovh.major.minigames.modules.console.ConsolePrinter;
+import ovh.major.minigames.modules.NumberGenerator;
+import ovh.major.minigames.lotekGames.NumbersSet;
 
 class LotekConsoleBuilder {
 
@@ -11,49 +13,49 @@ class LotekConsoleBuilder {
     private final static String AI_NUMBER_TEXT = "Numery losowania: ";
 
     private final GameConfigurator gameConfig;
-    private final ConsoleReader consoleReader;
+    private final ConsoleNumberReader consoleNumberReader;
     private final ConsolePrinter consolePrinter = new ConsolePrinter();
 
-    LotekConsoleBuilder(GameConfigurator gameConfig) {
+    public LotekConsoleBuilder(GameConfigurator gameConfig) {
         this.gameConfig = gameConfig;
-        this.consoleReader = new ConsoleReader(gameConfig.getDrawnRangeMin(), gameConfig.getDrawnRangeMax());
+        this.consoleNumberReader = new ConsoleNumberReader(gameConfig.getDrawnRangeMin(), gameConfig.getDrawnRangeMax());
     }
 
     public void start() {
-        LottoGame lotto = new LottoGame(gameConfig, readFromPlayer(), drawnNumbers());
-        Numbers winingNumbers = lotto.start();
+        LotekGames lotto = new LotekGames(gameConfig, readFromPlayer(), drawnNumbers());
+        NumbersSet winingNumbers = lotto.start();
         LotekResults lotekResults = new LotekResults(winingNumbers);
         consolePrinter.printLn(lotekResults.toString());
     }
 
-    private Numbers drawnNumbers() {
-        Numbers aiNumbers = new Numbers(gameConfig.getNumberOfDrawNumbers(), gameConfig.isShouldBeUnigueNumbers());
+    private NumbersSet drawnNumbers() {
+        NumbersSet aiNumbers = new NumbersSet(gameConfig.getNumberOfDrawNumbers());
         NumberGenerator generator = new NumberGenerator();
         for (int i = 0; i < gameConfig.getNumberOfDrawNumbers(); i++) {
             boolean isAdded = aiNumbers.add(generator.getRandomNumber(gameConfig.getDrawnRangeMax()));
-            if (gameConfig.isShouldBeUnigueNumbers() && !isAdded) i--;
+            if (!isAdded) i--;
         }
-        numbersPrinter(AI_NUMBER_TEXT,aiNumbers);
+        numbersPrinter(AI_NUMBER_TEXT, aiNumbers);
         return aiNumbers;
     }
 
-    private Numbers readFromPlayer() {
+    private NumbersSet readFromPlayer() {
         final String NUMBER_IS_EXIST_TEXT = "Ta liczba już została wybrana!";
         ConsolePrinter consolePrinter = new ConsolePrinter();
-        Numbers playerNumbers = new Numbers(gameConfig.getNumberOfPlayerNumbers(), gameConfig.isShouldBeUnigueNumbers());
+        NumbersSet playerNumbers = new NumbersSet(gameConfig.getNumberOfPlayerNumbers());
         for (int i = 0; i < gameConfig.getNumberOfPlayerNumbers(); i++) {
-            int number = consoleReader.readNumberFromUser();
+            int number = consoleNumberReader.readNumberFromUser();
             boolean isAdded = playerNumbers.add(number);
-            if (gameConfig.isShouldBeUnigueNumbers() && !isAdded) {
+            if (!isAdded) {
                 consolePrinter.printLn(NUMBER_IS_EXIST_TEXT);
                 i--;
             }
         }
-        numbersPrinter(PLAYER_NUMBER_TEXT,playerNumbers);
+        numbersPrinter(PLAYER_NUMBER_TEXT, playerNumbers);
         return playerNumbers;
     }
 
-    private void numbersPrinter(String description, Numbers playerNumbers) {
+    private void numbersPrinter(String description, NumbersSet playerNumbers) {
         ConsolePrinter consolePrinter = new ConsolePrinter();
         consolePrinter.print(description);
         consolePrinter.printLn(playerNumbers.toString());

@@ -1,8 +1,8 @@
-package ovh.major.minigames.interfaces.console;
+package ovh.major.minigames.modules.console;
 
 import java.util.Scanner;
 
-class Questions {
+public class Questions {
     Scanner scanner = new Scanner(System.in);
     ConsolePrinter consolePrinter = new ConsolePrinter();
 

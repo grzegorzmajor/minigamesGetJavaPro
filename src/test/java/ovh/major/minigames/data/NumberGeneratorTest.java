@@ -1,6 +1,7 @@
 package ovh.major.minigames.data;
 
 import org.junit.Test;
+import ovh.major.minigames.modules.NumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertThrows;
