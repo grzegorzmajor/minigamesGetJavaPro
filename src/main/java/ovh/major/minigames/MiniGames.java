@@ -5,12 +5,12 @@ import ovh.major.minigames.menu.window.WindowsStart;
 
 public class MiniGames {
     public static void main(String[] args) {
-        System.out.println("args:" + args.length);
         if (args.length == 0) {
             ConsoleStart consoleMenu = new ConsoleStart();
             consoleMenu.start();
         } else {
             if (args[0].equals("--window")) {
+                System.out.println("Uruchamiam w okienku.");
                 WindowsStart.start();
             }
         }
