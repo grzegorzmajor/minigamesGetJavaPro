@@ -1,5 +1,6 @@
 package ovh.major.minigames.lotekGames.console;
 
+
 import ovh.major.minigames.modules.WordChanger;
 
 import java.util.Set;

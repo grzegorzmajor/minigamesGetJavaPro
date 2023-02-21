@@ -2,7 +2,7 @@ package ovh.major.minigames.lotekGames.window;
 
 import ovh.major.minigames.lotekGames.GameConfigurator;
 import ovh.major.minigames.lotekGames.LotekGames;
-import ovh.major.minigames.modules.NumberGenerator;
+import ovh.major.minigames.lotekGames.NumberRandomizer;
 import ovh.major.minigames.modules.WordChanger;
 
 import javax.swing.*;
@@ -30,7 +30,6 @@ public class LotekFrame extends JFrame implements ActionListener {
         setBounds(20, 20, 300, 500);
         setLayout(new GridLayout(3, 1));
         setLocationRelativeTo(null);
-        aiNumbers = drawn(gameConfigurator.getNumberOfDrawNumbers(), gameConfigurator.getDrawnRangeMax());
         add(label);
         label.setPreferredSize(new Dimension(180, 40));
         add(button);
@@ -49,18 +48,8 @@ public class LotekFrame extends JFrame implements ActionListener {
         }
     }
 
-    private Set<Integer> drawn(int numberOfDrawNumbers, int drawnRangeMax) {
-        Set<Integer> aiNumbers = new HashSet<>();
-        for (int i = 0; i < numberOfDrawNumbers; i++) {
-            boolean isAdded = aiNumbers.add(NumberGenerator.getRandomNumber(drawnRangeMax));
-            if (!isAdded) i--;
-        }
-        return aiNumbers;
-    }
-
-
     private void startGameWhenPlayerShouldEnterAllNumbers() {
-        if ((userNumbers.size()==gameConfigurator.getNumberOfPlayerNumbers())
+        if ((userNumbers.size() == gameConfigurator.getNumberOfPlayerNumbers())
         ) {
             startGame();
         } else {
@@ -78,7 +67,8 @@ public class LotekFrame extends JFrame implements ActionListener {
     }
 
     private void startGame() {
-        this.aiNumbers = drawn(gameConfigurator.getNumberOfDrawNumbers(), gameConfigurator.getDrawnRangeMax());
+        NumberRandomizer numberRandomizer = new NumberRandomizer(gameConfigurator);
+        this.aiNumbers = numberRandomizer.drawnNumbers();
         LotekGames lotek = new LotekGames(this.gameConfigurator, this.userNumbers, this.aiNumbers);
         resultPrint(lotek.start());
     }
