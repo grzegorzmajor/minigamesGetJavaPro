@@ -1,12 +1,13 @@
 package ovh.major.minigames.lotekGames.console;
 
-import ovh.major.minigames.lotekGames.NumbersSet;
 import ovh.major.minigames.modules.WordChanger;
 
-class LotekResults {
-    private final NumbersSet winingUserNumbers;
+import java.util.Set;
 
-    public LotekResults(NumbersSet winingUserNumbers) {
+class LotekResults {
+    private final Set<Integer> winingUserNumbers;
+
+    public LotekResults(Set<Integer> winingUserNumbers) {
         this.winingUserNumbers = winingUserNumbers;
     }
 

@@ -1,12 +1,12 @@
 package ovh.major.minigames.lotekGames.window;
 
 import ovh.major.minigames.lotekGames.GameConfigurator;
-import ovh.major.minigames.lotekGames.NumbersSet;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
 
 class UserNumbersPanel extends JPanel implements ActionListener {
 
@@ -15,10 +15,10 @@ class UserNumbersPanel extends JPanel implements ActionListener {
     private final JSpinner spinner;
     private final JButton addButton = new JButton("Dodaj");
     private final JButton clearButton = new JButton("Czyść");
-    NumbersSet userNumbers;
+    Set<Integer> userNumbers;
     private String USER_NUMBERS_TEXT;
 
-    public UserNumbersPanel(NumbersSet userNumbers, GameConfigurator gameConfigurator) {
+    public UserNumbersPanel(Set<Integer> userNumbers, GameConfigurator gameConfigurator) {
         this.gameConfigurator = gameConfigurator;
         this.userNumbers = userNumbers;
         SpinnerModel model = new SpinnerNumberModel(1, gameConfigurator.getDrawnRangeMin(),
@@ -42,7 +42,7 @@ class UserNumbersPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == addButton) {
-            if (!userNumbers.isFull()) {
+            if (!(userNumbers.size()==gameConfigurator.getNumberOfPlayerNumbers())) {
                 int value = (int) spinner.getValue();
                 userNumbers.add(value);
                 label.setText("<html>Twoje liczby: " + userNumbers.toString());

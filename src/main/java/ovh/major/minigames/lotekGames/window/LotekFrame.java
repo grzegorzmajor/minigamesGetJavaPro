@@ -2,7 +2,6 @@ package ovh.major.minigames.lotekGames.window;
 
 import ovh.major.minigames.lotekGames.GameConfigurator;
 import ovh.major.minigames.lotekGames.LotekGames;
-import ovh.major.minigames.lotekGames.NumbersSet;
 import ovh.major.minigames.modules.NumberGenerator;
 import ovh.major.minigames.modules.WordChanger;
 
@@ -10,20 +9,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
 
 public class LotekFrame extends JFrame implements ActionListener {
 
     private final GameConfigurator gameConfigurator;
-    private final NumbersSet userNumbers;
+    private final Set<Integer> userNumbers;
     private final JLabel label = new JLabel(" Grasz?", SwingConstants.CENTER);
     private final JButton button = new JButton("Gram!");
-    private NumbersSet aiNumbers;
+    private Set<Integer> aiNumbers;
 
 
     public LotekFrame(GameConfigurator gameConfigurator) {
         super("Zagrasz?");
         this.gameConfigurator = gameConfigurator;
-        userNumbers = new NumbersSet(gameConfigurator.getNumberOfPlayerNumbers());
+        userNumbers = new HashSet<>();
         UserNumbersPanel userNumbersPanel = new UserNumbersPanel(userNumbers, gameConfigurator);
         add(userNumbersPanel);
         setBounds(20, 20, 300, 500);
@@ -48,11 +49,10 @@ public class LotekFrame extends JFrame implements ActionListener {
         }
     }
 
-    private NumbersSet drawn(int numberOfDrawNumbers, int drawnRangeMax) {
-        NumbersSet aiNumbers = new NumbersSet(numberOfDrawNumbers);
-        NumberGenerator generator = new NumberGenerator();
+    private Set<Integer> drawn(int numberOfDrawNumbers, int drawnRangeMax) {
+        Set<Integer> aiNumbers = new HashSet<>();
         for (int i = 0; i < numberOfDrawNumbers; i++) {
-            boolean isAdded = aiNumbers.add(generator.getRandomNumber(drawnRangeMax));
+            boolean isAdded = aiNumbers.add(NumberGenerator.getRandomNumber(drawnRangeMax));
             if (!isAdded) i--;
         }
         return aiNumbers;
@@ -60,7 +60,7 @@ public class LotekFrame extends JFrame implements ActionListener {
 
 
     private void startGameWhenPlayerShouldEnterAllNumbers() {
-        if ((userNumbers.isFull())
+        if ((userNumbers.size()==gameConfigurator.getNumberOfPlayerNumbers())
         ) {
             startGame();
         } else {
@@ -83,7 +83,7 @@ public class LotekFrame extends JFrame implements ActionListener {
         resultPrint(lotek.start());
     }
 
-    private void resultPrint(NumbersSet result) {
+    private void resultPrint(Set<Integer> result) {
         label.setText("<html>Numery losowania: " + aiNumbers + "<br>Trafiłeś "
                 + result.size() + " " + WordChanger.number(result.size()) + ": " + result);
     }
