@@ -25,7 +25,7 @@ class LotekConsoleBuilder {
 
     public void start() {
         Set<Integer> userNumber = userNumberReader.readFromPlayer();
-        Set<Integer> aiNumber = numberRandomizer.drawnNumbers();
+        Set<Integer> aiNumber = numberRandomizer.drawNumbers();
         LotekGames lotto = new LotekGames(gameConfig, userNumber, aiNumber);
         Set<Integer> winingNumbers = lotto.start();
         LotekResults lotekResults = new LotekResults(winingNumbers);

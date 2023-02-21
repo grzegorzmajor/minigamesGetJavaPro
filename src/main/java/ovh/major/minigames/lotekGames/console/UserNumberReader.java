@@ -14,7 +14,7 @@ class UserNumberReader {
 
     public UserNumberReader(GameConfigurator gameConfig) {
         this.gameConfig = gameConfig;
-        this.consoleNumberReader = new ConsoleNumberReader(gameConfig.getDrawnRangeMin(), gameConfig.getDrawnRangeMax());
+        this.consoleNumberReader = new ConsoleNumberReader(gameConfig.getDrawRangeMin(), gameConfig.getDrawRangeMax());
     }
 
     Set<Integer> readFromPlayer() {

@@ -15,9 +15,9 @@ public class LotekGames {
     }
 
     public Set<Integer> start() {
-        Set<Integer> result =  new HashSet<>() ;
+        Set<Integer> result = new HashSet<>();
         playerNumbers.forEach(number -> {
-            if ( aiNumbers.contains(number) ) result.add(number);
+            if (aiNumbers.contains(number)) result.add(number);
         });
         return result;
     }

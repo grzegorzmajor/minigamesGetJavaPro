@@ -19,11 +19,11 @@ public class GameConfigurator {
         return NUMBER_OF_DRAWN_NUMBERS;
     }
 
-    public int getDrawnRangeMin() {
+    public int getDrawRangeMin() {
         return DRAWN_RANGE_MIN;
     }
 
-    public int getDrawnRangeMax() {
+    public int getDrawRangeMax() {
         return DRAWN_RANGE_MAX;
     }
 

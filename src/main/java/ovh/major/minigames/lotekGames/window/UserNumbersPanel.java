@@ -21,8 +21,8 @@ class UserNumbersPanel extends JPanel implements ActionListener {
     public UserNumbersPanel(Set<Integer> userNumbers, GameConfigurator gameConfigurator) {
         this.gameConfigurator = gameConfigurator;
         this.userNumbers = userNumbers;
-        SpinnerModel model = new SpinnerNumberModel(1, gameConfigurator.getDrawnRangeMin(),
-                gameConfigurator.getDrawnRangeMax(), 1);
+        SpinnerModel model = new SpinnerNumberModel(1, gameConfigurator.getDrawRangeMin(),
+                gameConfigurator.getDrawRangeMax(), 1);
         spinner = new JSpinner(model);
         setUserNumberText();
         this.label = new JLabel(USER_NUMBERS_TEXT, SwingConstants.CENTER);
@@ -42,7 +42,7 @@ class UserNumbersPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == addButton) {
-            if (!(userNumbers.size()==gameConfigurator.getNumberOfPlayerNumbers())) {
+            if (!(userNumbers.size() == gameConfigurator.getNumberOfPlayerNumbers())) {
                 int value = (int) spinner.getValue();
                 userNumbers.add(value);
                 label.setText("<html>Twoje liczby: " + userNumbers.toString());
@@ -59,12 +59,12 @@ class UserNumbersPanel extends JPanel implements ActionListener {
     private void setUserNumberText() {
         if (gameConfigurator.playerShouldEnterAllNumbers()) {
             USER_NUMBERS_TEXT = "Dodaj dokładnie " + gameConfigurator.getNumberOfPlayerNumbers() + " liczb od "
-                    + gameConfigurator.getDrawnRangeMin() + " do "
-                    + gameConfigurator.getDrawnRangeMax() + " ";
+                    + gameConfigurator.getDrawRangeMin() + " do "
+                    + gameConfigurator.getDrawRangeMax() + " ";
         } else {
             USER_NUMBERS_TEXT = "Dodaj do " + gameConfigurator.getNumberOfPlayerNumbers() + " liczb od "
-                    + gameConfigurator.getDrawnRangeMin() + " do "
-                    + gameConfigurator.getDrawnRangeMax() + " ";
+                    + gameConfigurator.getDrawRangeMin() + " do "
+                    + gameConfigurator.getDrawRangeMax() + " ";
         }
     }
 }
