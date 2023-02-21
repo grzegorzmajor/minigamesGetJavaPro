@@ -15,9 +15,8 @@ public class NumberRandomizer {
 
     public Set<Integer> drawnNumbers() {
         Set<Integer> aiNumbers = new HashSet<>();
-        for (int i = 0; i < gameConfig.getNumberOfDrawNumbers(); i++) {
-            boolean isAdded = aiNumbers.add(NumberGenerator.getRandomNumber(gameConfig.getDrawnRangeMax()));
-            if (!isAdded) i--;
+        while (aiNumbers.size() < gameConfig.getNumberOfDrawNumbers()) {
+            aiNumbers.add(NumberGenerator.getRandomNumber(gameConfig.getDrawnRangeMax()));
         }
         return aiNumbers;
     }
