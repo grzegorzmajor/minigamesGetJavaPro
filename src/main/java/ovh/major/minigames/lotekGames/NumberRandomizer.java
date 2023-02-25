@@ -13,7 +13,7 @@ public class NumberRandomizer {
         this.gameConfig = gameConfig;
     }
 
-    public Set<Integer> drawNumbers() {
+    public Set<Integer> drawnNumbers() {
         Set<Integer> aiNumbers = new HashSet<>();
         while (aiNumbers.size() < gameConfig.getNumberOfDrawNumbers()) {
             aiNumbers.add(NumberGenerator.getRandomNumber(gameConfig.getDrawRangeMax()));

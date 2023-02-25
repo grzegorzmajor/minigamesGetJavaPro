@@ -1,33 +1,34 @@
 package ovh.major.minigames.data;
 
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import ovh.major.minigames.modules.NumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class NumberGeneratorTest {
 
-    @Test
-    public void numberGeneratorTest() {
-        int minValue = 12;
-        int maxValue = 12;
-        NumberGenerator numberGenerator = new NumberGenerator();
+    @ParameterizedTest
+    @ValueSource(ints = {5,10,15,46})
+    public void numberGeneratorTest(int minMaxValue) {
+        //NumberGenerator numberGenerator = new NumberGenerator();
 
-        int result = numberGenerator.getRandomNumber(minValue, maxValue);
+        int result = NumberGenerator.getRandomNumber(minMaxValue, minMaxValue);
 
-        assertThat(result).isEqualTo(12);
+        assertThat(result).isEqualTo(minMaxValue);
     }
 
-    @Test
-    public void numberGeneratorTest__WhenMinIsBiggerThanMax() {
-        int minValue = 13;
-        int maxValue = 12;
+    @ParameterizedTest
+    @ValueSource(ints={12,13,16,46})
+    public void numberGeneratorTest__WhenMinIsBiggerThanMax(int maxValue) {
+        int minValue = maxValue+1;
         String expectedMessage = "Random Generator Error: Min Value > Max Value";
-        NumberGenerator numberGenerator = new NumberGenerator();
+        //NumberGenerator numberGenerator = new NumberGenerator();
 
-        Exception exception = assertThrows(RuntimeException.class, () -> numberGenerator.getRandomNumber(minValue, maxValue));
+        Exception exception = assertThrows(RuntimeException.class, () -> NumberGenerator.getRandomNumber(minValue, maxValue));
         String actualMessage = exception.toString();
 
         assertTrue(actualMessage.contains(expectedMessage));
