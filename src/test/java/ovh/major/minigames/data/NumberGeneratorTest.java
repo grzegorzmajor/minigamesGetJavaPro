@@ -14,24 +14,28 @@ public class NumberGeneratorTest {
     @ParameterizedTest
     @ValueSource(ints = {5,10,15,46})
     public void numberGeneratorTest(int minMaxValue) {
-        //NumberGenerator numberGenerator = new NumberGenerator();
 
+        //when
         int result = NumberGenerator.getRandomNumber(minMaxValue, minMaxValue);
 
+        //then
         assertThat(result).isEqualTo(minMaxValue);
     }
 
     @ParameterizedTest
     @ValueSource(ints={12,13,16,46})
     public void numberGeneratorTest__WhenMinIsBiggerThanMax(int maxValue) {
+
+        //given
         int minValue = maxValue+1;
         String expectedMessage = "Random Generator Error: Min Value > Max Value";
-        //NumberGenerator numberGenerator = new NumberGenerator();
 
+        //when
         Exception exception = assertThrows(RuntimeException.class, () -> NumberGenerator.getRandomNumber(minValue, maxValue));
-        String actualMessage = exception.toString();
 
-        assertTrue(actualMessage.contains(expectedMessage));
+        //then
+        assertTrue(exception.toString()
+                .contains(expectedMessage));
     }
 
 
