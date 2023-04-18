@@ -32,18 +32,28 @@ class MenuPanel extends JPanel implements ActionListener {
         Object source = e.getSource();
 
         if (source == btnLotek) {
-            final GameConfigurator gameConfigurator = new GameConfigurator(6, 1,
-                    99, 6, true);
             LotekFrame lotekFrame;
-            lotekFrame = new LotekFrame(gameConfigurator);
+            lotekFrame = new LotekFrame(new GameConfigurator.Builder()
+                    .numberOfDrawnNumbers(6)
+                    .drawnRangeMin(1)
+                    .drawnRangeMax(99)
+                    .numberOfPlayerNumbers(6)
+                    .playerShouldEnterAllNumbers(true)
+                    .build()
+            );
             lotekFrame.setVisible(true);
         }
 
         if (source == btnLotek69) {
-            final GameConfigurator gameConfigurator = new GameConfigurator(6, 1,
-                    69, 12, false);
             LotekFrame lotekFrame;
-            lotekFrame = new LotekFrame(gameConfigurator);
+            lotekFrame = new LotekFrame(new GameConfigurator.Builder()
+                    .numberOfDrawnNumbers(6)
+                    .drawnRangeMin(1)
+                    .drawnRangeMax(69)
+                    .numberOfPlayerNumbers(12)
+                    .playerShouldEnterAllNumbers(false)
+                    .build()
+            );
             lotekFrame.setVisible(true);
         }
     }

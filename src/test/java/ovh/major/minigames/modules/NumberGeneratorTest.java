@@ -1,8 +1,7 @@
-package ovh.major.minigames.data;
+package ovh.major.minigames.modules;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import ovh.major.minigames.modules.NumberGenerator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -14,8 +14,13 @@ public class LotekGamesTest {
         //given
         Set<Integer> inputNumbers = getNumbers(1, 2, 3, 4, 5, 99);
         Set<Integer> inputAiNumbers = getNumbers(1, 2, 3, 4, 5, 99);
-        GameConfigurator gameConfig = new GameConfigurator(6, 1, 99, 6, true);
-        LotekGames noToLotto = new LotekGames(gameConfig, inputNumbers, inputAiNumbers);
+        LotekGames noToLotto = new LotekGames(new GameConfigurator.Builder()
+                .numberOfDrawnNumbers(6)
+                .drawnRangeMin(1)
+                .drawnRangeMax(99)
+                .numberOfPlayerNumbers(6)
+                .playerShouldEnterAllNumbers(true)
+                .build(), inputNumbers, inputAiNumbers);
         Set<Integer> expectedResult = getNumbers(1, 2, 3, 4, 5, 99);
 
         //when
@@ -30,8 +35,13 @@ public class LotekGamesTest {
         //given
         Set<Integer> inputNumbers = new HashSet<>();
         Set<Integer> inputAiNumbers = getNumbers(1, 2, 3, 4, 5, 99);
-        GameConfigurator gameConfig = new GameConfigurator(6, 1, 99, 6, true);
-        LotekGames noToLotto = new LotekGames(gameConfig, inputNumbers, inputAiNumbers);
+        LotekGames noToLotto = new LotekGames(new GameConfigurator.Builder()
+                .numberOfDrawnNumbers(6)
+                .drawnRangeMin(1)
+                .drawnRangeMax(99)
+                .numberOfPlayerNumbers(6)
+                .playerShouldEnterAllNumbers(true)
+                .build(), inputNumbers, inputAiNumbers);
 
         //when
         Set<Integer> resultNumbers = noToLotto.start();
@@ -45,8 +55,13 @@ public class LotekGamesTest {
         //given
         Set<Integer> inputNumbers = getNumbers(1);
         Set<Integer> inputAiNumbers = getNumbers(1, 2, 3, 4, 5, 99);
-        GameConfigurator gameConfig = new GameConfigurator(6, 1, 99, 6, true);
-        LotekGames noToLotto = new LotekGames(gameConfig, inputNumbers, inputAiNumbers);
+        LotekGames noToLotto = new LotekGames(new GameConfigurator.Builder()
+                .numberOfDrawnNumbers(6)
+                .drawnRangeMin(1)
+                .drawnRangeMax(99)
+                .numberOfPlayerNumbers(6)
+                .playerShouldEnterAllNumbers(true)
+                .build(), inputNumbers, inputAiNumbers);
         Set<Integer> expectedResult = getNumbers(1);
 
         //when
